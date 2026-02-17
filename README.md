@@ -1,5 +1,5 @@
 ```javascript
-const flowers = ["Sunflower", "Rose", "Daisy", "Lily", "Lotus"];
-flowers.sort();
-flowers.forEach(flower => console.log(flower));
+const fruits = ["Pineapple", "Banana", "Apple", "Guava", "Mango"];
+fruits.sort();
+fruits.forEach(fruit => console.log(fruit));
 ```
