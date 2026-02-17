@@ -1,23 +1,27 @@
 ```javascript
 onExcelDownload: function() {
-    var oTable = this.byId("yourTableId");
-    var aCols = oTable.getColumns().map(function(oColumn) {
+    var oTable = this.byId("myTable");
+    var aColumns = oTable.getColumns().map(function(oColumn) {
         return {
-            label: oColumn.getHeader().getText(),
-            property: oColumn.getSortProperty() || oColumn.getFilterProperty()
+            label: oColumn.getLabel().getText(),
+            property: oColumn.getCustomData()[0].getValue()
         };
     });
-    var aData = oTable.getBinding("items").getContexts().map(function(oContext) {
-        return oContext.getObject();
+
+    var aItems = oTable.getItems();
+    var aData = aItems.map(function(oItem) {
+        var oContext = oItem.getBindingContext();
+        return aColumns.map(function(oColumn) {
+            return oContext.getProperty(oColumn.property);
+        });
     });
-    var oSettings = {
-        workbook: {
-            columns: aCols
-        },
-        dataSource: aData
-    };
-    var oSheet = new sap.ui.export.Spreadsheet(oSettings);
-    oSheet.build().then(function() {
+
+    var oSheet = new sap.ui.export.Spreadsheet({
+        dataSource: aData,
+        columns: aColumns
+    });
+
+    oSheet.build().finally(function() {
         oSheet.destroy();
     });
 }
