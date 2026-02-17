@@ -1,28 +1,18 @@
-```javascript
-onExcelDownload: function() {
-    var oTable = this.byId("myTable");
-    var aColumns = oTable.getColumns().map(function(oColumn) {
-        return {
-            label: oColumn.getLabel().getText(),
-            property: oColumn.getCustomData()[0].getValue()
-        };
-    });
+```js
+const planets = [
+  { name: 'Mercury', position: 1 },
+  { name: 'Venus', position: 2 },
+  { name: 'Earth', position: 3 },
+  { name: 'Mars', position: 4 },
+  { name: 'Jupiter', position: 5 },
+  { name: 'Saturn', position: 6 },
+  { name: 'Uranus', position: 7 },
+  { name: 'Neptune', position: 8 }
+];
 
-    var aItems = oTable.getItems();
-    var aData = aItems.map(function(oItem) {
-        var oContext = oItem.getBindingContext();
-        return aColumns.map(function(oColumn) {
-            return oContext.getProperty(oColumn.property);
-        });
-    });
+planets.sort((a, b) => a.position - b.position);
 
-    var oSheet = new sap.ui.export.Spreadsheet({
-        dataSource: aData,
-        columns: aColumns
-    });
-
-    oSheet.build().finally(function() {
-        oSheet.destroy();
-    });
-}
+planets.forEach(planet => {
+  console.log(`Planet: ${planet.name}, Position from Sun: ${planet.position}`);
+});
 ```
