@@ -1,5 +1,5 @@
 ```python
-flowers = ["Jasmine", "Lotus", "Rose", "Lily", "Peonies"]
-flowers.sort()
-print(flowers)
+fruits = ["apple", "mango", "pineapple", "strawberry", "Jamun"]
+fruits.sort()
+print(fruits)
 ```
