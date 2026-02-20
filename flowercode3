@@ -1,0 +1,5 @@
+```python
+fruits = ["apple", "mango", "pineapple", "strawberry", "Jamun"]
+fruits.sort()
+print(fruits)
+```
