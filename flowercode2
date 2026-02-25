@@ -1,5 +1,3 @@
-```python
-fruits = ["apple", "mango", "pineapple", "strawberry", "Jamun"]
-fruits.sort()
-print(fruits)
-```
+gemstones = ["Topaz", "Emerald", "Sapphire", "Opal", "Diamond", "Ruby"]
+gemstones.sort()
+print(gemstones)
