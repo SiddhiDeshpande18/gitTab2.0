@@ -1,0 +1,3 @@
+gemstones = ["Topaz", "Emerald", "Sapphire", "Opal", "Diamond", "Ruby"]
+gemstones.sort()
+print(gemstones)
