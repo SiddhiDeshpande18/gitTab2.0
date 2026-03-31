@@ -1,18 +1,38 @@
 ```python
-import anthropic
+def calculator():
+    print("Simple Calculator")
+    print("-" * 20)
+    
+    while True:
+        try:
+            num1 = float(input("Enter first number: "))
+            operator = input("Enter operator (+, -, *, /): ")
+            num2 = float(input("Enter second number: "))
+            
+            if operator == '+':
+                result = num1 + num2
+            elif operator == '-':
+                result = num1 - num2
+            elif operator == '*':
+                result = num1 * num2
+            elif operator == '/':
+                if num2 == 0:
+                    print("Error: Division by zero!")
+                    continue
+                result = num1 / num2
+            else:
+                print("Invalid operator!")
+                continue
+            
+            print(f"Result: {num1} {operator} {num2} = {result}")
+            
+        except ValueError:
+            print("Invalid input! Please enter numbers only.")
+        
+        again = input("\nCalculate again? (y/n): ")
+        if again.lower() != 'y':
+            break
 
-client = anthropic.Anthropic()
-
-message = client.messages.create(
-    model="claude-sonnet-4-20250514",
-    max_tokens=1024,
-    messages=[
-        {
-            "role": "user",
-            "content": "Arrange the list of Cities in ascending order - Mumbai, Pune, Bengaluru, Hyderabad, Noida.",
-        }
-    ],
-)
-
-print(message.content[0].text)
+if __name__ == "__main__":
+    calculator()
 ```
