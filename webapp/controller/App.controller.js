@@ -1,0 +1,54 @@
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+    "sap/m/MessageToast"
+], function (Controller, JSONModel, Filter, FilterOperator, MessageToast) {
+    "use strict";
+    return Controller.extend("com.example.NewUI5App.controller.App", {
+        onInit: function () {
+            // Load initial data
+            var oData = { Products: [] };
+            var oModel = new JSONModel(oData);
+            this.getView().setModel(oModel);
+        },
+
+        onSearch: function (oEvent) {
+            var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue") || "";
+            var aFilters = [];
+            if (sQuery) {
+                aFilters.push(new Filter("productName", FilterOperator.Contains, sQuery));
+            }
+            var oTable = this.byId("mainTable");
+            if (oTable) {
+                oTable.getBinding("items").filter(aFilters);
+            }
+        },
+
+        onAdd: function () {
+            // Open add dialog or show form
+            MessageToast.show("Add new item");
+        },
+
+        onSave: function () {
+            var oModel = this.getView().getModel();
+            var aItems = oModel.getProperty("/Products") || [];
+            var oNewItem = { id: Date.now() };
+            oNewItem.productName = this.byId("inputProductName").getValue();
+            oNewItem.category = this.byId("inputCategory").getValue();
+            oNewItem.price = this.byId("inputPrice").getValue();
+            oNewItem.stock = this.byId("inputStock").getValue();
+            oNewItem.status = this.byId("inputStatus").getValue();
+            aItems.push(oNewItem);
+            oModel.setProperty("/Products", aItems);
+            MessageToast.show("Item saved successfully");
+        },
+
+        onItemPress: function (oEvent) {
+            var oItem = oEvent.getSource();
+            var oBindingContext = oItem.getBindingContext();
+            sap.m.MessageToast.show("Selected: " + oBindingContext.getProperty("productName"));
+        }
+    });
+});

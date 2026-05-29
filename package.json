@@ -1,0 +1,12 @@
+{
+  "name": "newui5app",
+  "version": "0.0.1",
+  "description": "Create a UI5 application to manage Products. The app should have a table showing products with field",
+  "scripts": {
+    "start": "ui5 serve",
+    "build": "ui5 build --clean-dest"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.0.0"
+  }
+}

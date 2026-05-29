@@ -1,0 +1,44 @@
+{
+  "Products": [
+    {
+      "iD": 1,
+      "productName": "Sample ProductName 1",
+      "category": "Category value 1",
+      "price": "Price value 1",
+      "stock": "Stock value 1",
+      "status": "Inactive"
+    },
+    {
+      "iD": 2,
+      "productName": "Sample ProductName 2",
+      "category": "Category value 2",
+      "price": "Price value 2",
+      "stock": "Stock value 2",
+      "status": "Pending"
+    },
+    {
+      "iD": 3,
+      "productName": "Sample ProductName 3",
+      "category": "Category value 3",
+      "price": "Price value 3",
+      "stock": "Stock value 3",
+      "status": "Active"
+    },
+    {
+      "iD": 4,
+      "productName": "Sample ProductName 4",
+      "category": "Category value 4",
+      "price": "Price value 4",
+      "stock": "Stock value 4",
+      "status": "Inactive"
+    },
+    {
+      "iD": 5,
+      "productName": "Sample ProductName 5",
+      "category": "Category value 5",
+      "price": "Price value 5",
+      "stock": "Stock value 5",
+      "status": "Pending"
+    }
+  ]
+}

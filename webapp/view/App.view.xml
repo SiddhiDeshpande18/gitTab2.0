@@ -1,0 +1,57 @@
+<mvc:View
+    controllerName="com.example.NewUI5App.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    <Page id="page" title="{i18n>appTitle}">
+        <content>
+            <SearchField id="searchField" search=".onSearch" placeholder="{i18n>searchPlaceholder}" class="sapUiSmallMarginBottom"/>
+            <Table id="mainTable" items="{/Products}" growing="true" growingThreshold="20">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="{i18n>tableTitle}" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://add" text="{i18n>addButton}" press=".onAdd" type="Emphasized"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column><Text text="ID"/></Column>
+                    <Column><Text text="ProductName"/></Column>
+                    <Column><Text text="Category"/></Column>
+                    <Column><Text text="Price"/></Column>
+                    <Column><Text text="Stock"/></Column>
+                    <Column><Text text="Status"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" press=".onItemPress">
+                        <cells>
+                            <Text text="{iD}"/>
+                            <Text text="{productName}"/>
+                            <Text text="{category}"/>
+                            <Text text="{price}"/>
+                            <Text text="{stock}"/>
+                            <Text text="{status}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Panel headerText="{i18n>formTitle}" class="sapUiSmallMarginTop">
+                <content>
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="ProductName"/>
+                        <Input id="inputProductName" placeholder="Enter ProductName" class="sapUiSmallMarginBottom"/>
+                        <Label text="Category"/>
+                        <Input id="inputCategory" placeholder="Enter Category" class="sapUiSmallMarginBottom"/>
+                        <Label text="Price"/>
+                        <Input id="inputPrice" placeholder="Enter Price" class="sapUiSmallMarginBottom"/>
+                        <Label text="Stock"/>
+                        <Input id="inputStock" placeholder="Enter Stock" class="sapUiSmallMarginBottom"/>
+                        <Label text="Status"/>
+                        <Input id="inputStatus" placeholder="Enter Status" class="sapUiSmallMarginBottom"/>
+                        <Button text="{i18n>saveButton}" press=".onSave" type="Emphasized" class="sapUiSmallMarginTop"/>
+                    </VBox>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
