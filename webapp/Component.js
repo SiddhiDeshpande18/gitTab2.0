@@ -9,7 +9,7 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
             // Initialize app data model
             var oModel = new JSONModel({
-                Products: []
+                Employees: []
             });
             this.setModel(oModel);
         }

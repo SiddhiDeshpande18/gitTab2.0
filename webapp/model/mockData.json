@@ -1,43 +1,43 @@
 {
-  "Products": [
+  "Employees": [
     {
       "iD": 1,
-      "productName": "Sample ProductName 1",
-      "category": "Category value 1",
-      "price": "Price value 1",
-      "stock": "Stock value 1",
+      "name": "Sample Name 1",
+      "department": "Department value 1",
+      "email": "Email value 1",
+      "joiningDate": "2024-02-11",
       "status": "Inactive"
     },
     {
       "iD": 2,
-      "productName": "Sample ProductName 2",
-      "category": "Category value 2",
-      "price": "Price value 2",
-      "stock": "Stock value 2",
+      "name": "Sample Name 2",
+      "department": "Department value 2",
+      "email": "Email value 2",
+      "joiningDate": "2024-03-12",
       "status": "Pending"
     },
     {
       "iD": 3,
-      "productName": "Sample ProductName 3",
-      "category": "Category value 3",
-      "price": "Price value 3",
-      "stock": "Stock value 3",
+      "name": "Sample Name 3",
+      "department": "Department value 3",
+      "email": "Email value 3",
+      "joiningDate": "2024-04-13",
       "status": "Active"
     },
     {
       "iD": 4,
-      "productName": "Sample ProductName 4",
-      "category": "Category value 4",
-      "price": "Price value 4",
-      "stock": "Stock value 4",
+      "name": "Sample Name 4",
+      "department": "Department value 4",
+      "email": "Email value 4",
+      "joiningDate": "2024-05-14",
       "status": "Inactive"
     },
     {
       "iD": 5,
-      "productName": "Sample ProductName 5",
-      "category": "Category value 5",
-      "price": "Price value 5",
-      "stock": "Stock value 5",
+      "name": "Sample Name 5",
+      "department": "Department value 5",
+      "email": "Email value 5",
+      "joiningDate": "2024-06-15",
       "status": "Pending"
     }
   ]

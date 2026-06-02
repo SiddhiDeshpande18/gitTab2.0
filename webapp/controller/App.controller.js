@@ -9,7 +9,7 @@ sap.ui.define([
     return Controller.extend("com.example.NewUI5App.controller.App", {
         onInit: function () {
             // Load initial data
-            var oData = { Products: [] };
+            var oData = { Employees: [] };
             var oModel = new JSONModel(oData);
             this.getView().setModel(oModel);
         },
@@ -18,7 +18,7 @@ sap.ui.define([
             var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue") || "";
             var aFilters = [];
             if (sQuery) {
-                aFilters.push(new Filter("productName", FilterOperator.Contains, sQuery));
+                aFilters.push(new Filter("name", FilterOperator.Contains, sQuery));
             }
             var oTable = this.byId("mainTable");
             if (oTable) {
@@ -33,22 +33,22 @@ sap.ui.define([
 
         onSave: function () {
             var oModel = this.getView().getModel();
-            var aItems = oModel.getProperty("/Products") || [];
+            var aItems = oModel.getProperty("/Employees") || [];
             var oNewItem = { id: Date.now() };
-            oNewItem.productName = this.byId("inputProductName").getValue();
-            oNewItem.category = this.byId("inputCategory").getValue();
-            oNewItem.price = this.byId("inputPrice").getValue();
-            oNewItem.stock = this.byId("inputStock").getValue();
+            oNewItem.name = this.byId("inputName").getValue();
+            oNewItem.department = this.byId("inputDepartment").getValue();
+            oNewItem.email = this.byId("inputEmail").getValue();
+            oNewItem.joiningDate = this.byId("inputJoiningDate").getValue();
             oNewItem.status = this.byId("inputStatus").getValue();
             aItems.push(oNewItem);
-            oModel.setProperty("/Products", aItems);
+            oModel.setProperty("/Employees", aItems);
             MessageToast.show("Item saved successfully");
         },
 
         onItemPress: function (oEvent) {
             var oItem = oEvent.getSource();
             var oBindingContext = oItem.getBindingContext();
-            sap.m.MessageToast.show("Selected: " + oBindingContext.getProperty("productName"));
+            sap.m.MessageToast.show("Selected: " + oBindingContext.getProperty("name"));
         }
     });
 });
