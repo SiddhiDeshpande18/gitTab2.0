@@ -6,7 +6,7 @@ sap.ui.define([
     "sap/m/MessageToast"
 ], function (Controller, JSONModel, Filter, FilterOperator, MessageToast) {
     "use strict";
-    return Controller.extend("com.example.NewUI5App.controller.App", {
+    return Controller.extend("com.example.will.controller.App", {
         onInit: function () {
             // Load initial data
             var oData = { Employees: [] };

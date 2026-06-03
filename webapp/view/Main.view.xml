@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="com.example.NewUI5App.controller.Main"
+    controllerName="com.example.will.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="mainPage" title="{i18n>appTitle}">
