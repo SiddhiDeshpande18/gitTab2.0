@@ -1,0 +1,5 @@
+```python
+gemstones = ["Topaz", "Emerald", "Sapphire", "Opal", "Diamond", "Ruby"]
+sorted_gemstones = sorted(gemstones)
+print(sorted_gemstones)
+```
