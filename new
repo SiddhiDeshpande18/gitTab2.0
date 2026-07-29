@@ -1,0 +1,26 @@
+```python
+from datetime import datetime, timedelta
+
+def calculate_sundays_in_year(year):
+    # Start with the first day of the year
+    date = datetime(year, 1, 1)
+    
+    # Find the first Sunday of the year
+    while date.weekday() != 6:  # 6 is the index for Sunday
+        date += timedelta(days=1)
+    
+    sundays = []
+    
+    # Iterate through the year, stepping one week at a time
+    while date.year == year:
+        sundays.append(date)
+        date += timedelta(days=7)
+    
+    return sundays
+
+# Example usage
+year = 2023
+sundays = calculate_sundays_in_year(year)
+for sunday in sundays:
+    print(sunday.strftime(&#x27;%Y-%m-%d&#x27;))
+```
