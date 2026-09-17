@@ -1,5 +1,1 @@
-```python
-fruits = ["apple", "mango", "pineapple", "strawberry", "Jamun"]
-fruits.sort()
-print(fruits)
-```
+Bengaluru, Mumbai, Nashik, Pune, Satara
