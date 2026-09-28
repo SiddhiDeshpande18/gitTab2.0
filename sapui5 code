@@ -1,0 +1,30 @@
+```javascript
+function fetchCAPMData() {
+  return new Promise((resolve, reject) =&gt; {
+    const url = &#x27;https://api.example.com/capm-data&#x27;; // Replace with actual API endpoint
+
+    fetch(url)
+      .then(response =&gt; {
+        if (!response.ok) {
+          throw new Error(&#x27;Network response was not ok&#x27;);
+        }
+        return response.json();
+      })
+      .then(data =&gt; {
+        resolve(data);
+      })
+      .catch(error =&gt; {
+        reject(&#x27;Fetching CAPM data failed: &#x27; + error.message);
+      });
+  });
+}
+
+// Sample call to fetch CAPM data
+fetchCAPMData()
+  .then(data =&gt; {
+    console.log(&#x27;Successfully fetched CAPM data:&#x27;, data);
+  })
+  .catch(error =&gt; {
+    console.error(&#x27;Error:&#x27;, error);
+  });
+```
