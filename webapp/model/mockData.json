@@ -1,0 +1,44 @@
+{
+  "Employees": [
+    {
+      "iD": 1,
+      "name": "Sample Name 1",
+      "department": "Department value 1",
+      "email": "Email value 1",
+      "joiningDate": "2024-02-11",
+      "status": "Inactive"
+    },
+    {
+      "iD": 2,
+      "name": "Sample Name 2",
+      "department": "Department value 2",
+      "email": "Email value 2",
+      "joiningDate": "2024-03-12",
+      "status": "Pending"
+    },
+    {
+      "iD": 3,
+      "name": "Sample Name 3",
+      "department": "Department value 3",
+      "email": "Email value 3",
+      "joiningDate": "2024-04-13",
+      "status": "Active"
+    },
+    {
+      "iD": 4,
+      "name": "Sample Name 4",
+      "department": "Department value 4",
+      "email": "Email value 4",
+      "joiningDate": "2024-05-14",
+      "status": "Inactive"
+    },
+    {
+      "iD": 5,
+      "name": "Sample Name 5",
+      "department": "Department value 5",
+      "email": "Email value 5",
+      "joiningDate": "2024-06-15",
+      "status": "Pending"
+    }
+  ]
+}

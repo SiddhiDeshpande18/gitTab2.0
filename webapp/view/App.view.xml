@@ -1,0 +1,57 @@
+<mvc:View
+    controllerName="com.example.will.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    <Page id="page" title="{i18n>appTitle}">
+        <content>
+            <SearchField id="searchField" search=".onSearch" placeholder="{i18n>searchPlaceholder}" class="sapUiSmallMarginBottom"/>
+            <Table id="mainTable" items="{/Employees}" growing="true" growingThreshold="20">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="{i18n>tableTitle}" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://add" text="{i18n>addButton}" press=".onAdd" type="Emphasized"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column><Text text="ID"/></Column>
+                    <Column><Text text="Name"/></Column>
+                    <Column><Text text="Department"/></Column>
+                    <Column><Text text="Email"/></Column>
+                    <Column><Text text="JoiningDate"/></Column>
+                    <Column><Text text="Status"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" press=".onItemPress">
+                        <cells>
+                            <Text text="{iD}"/>
+                            <Text text="{name}"/>
+                            <Text text="{department}"/>
+                            <Text text="{email}"/>
+                            <Text text="{joiningDate}"/>
+                            <Text text="{status}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Panel headerText="{i18n>formTitle}" class="sapUiSmallMarginTop">
+                <content>
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="Name"/>
+                        <Input id="inputName" placeholder="Enter Name" class="sapUiSmallMarginBottom"/>
+                        <Label text="Department"/>
+                        <Input id="inputDepartment" placeholder="Enter Department" class="sapUiSmallMarginBottom"/>
+                        <Label text="Email"/>
+                        <Input id="inputEmail" placeholder="Enter Email" class="sapUiSmallMarginBottom"/>
+                        <Label text="JoiningDate"/>
+                        <Input id="inputJoiningDate" placeholder="Enter JoiningDate" class="sapUiSmallMarginBottom"/>
+                        <Label text="Status"/>
+                        <Input id="inputStatus" placeholder="Enter Status" class="sapUiSmallMarginBottom"/>
+                        <Button text="{i18n>saveButton}" press=".onSave" type="Emphasized" class="sapUiSmallMarginTop"/>
+                    </VBox>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

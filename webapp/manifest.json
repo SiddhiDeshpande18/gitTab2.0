@@ -1,0 +1,47 @@
+{
+  "_version": "1.58.0",
+  "sap.app": {
+    "id": "com.example.will",
+    "type": "application",
+    "title": "will be employeeapp",
+    "description": "Create a UI5 application to manage Employees. App name will be employeeapp\nThe app should have a table displaying employees with fields: ID, Name, Department, Email, JoiningDate, Status. Include a sea",
+    "applicationVersion": {
+      "version": "0.0.1"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "rootView": {
+      "viewName": "com.example.will.view.App",
+      "type": "XML",
+      "id": "app"
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.example.will.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {}
+      }
+    }
+  }
+}

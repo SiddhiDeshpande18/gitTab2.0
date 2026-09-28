@@ -1,0 +1,32 @@
+<mvc:View
+    controllerName="com.example.will.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="mainPage" title="{i18n>appTitle}">
+        <content>
+            <SearchField search=".onSearch" placeholder="Search..." class="sapUiSmallMarginBottom"/>
+            <Table id="mainTable" items="{/Employees}" growing="true">
+                <columns>
+                    <Column><Text text="ID"/></Column>
+                    <Column><Text text="Name"/></Column>
+                    <Column><Text text="Department"/></Column>
+                    <Column><Text text="Email"/></Column>
+                    <Column><Text text="JoiningDate"/></Column>
+                    <Column><Text text="Status"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation" press=".onItemPress">
+                        <cells>
+                            <Text text="{iD}"/>
+                            <Text text="{name}"/>
+                            <Text text="{department}"/>
+                            <Text text="{email}"/>
+                            <Text text="{joiningDate}"/>
+                            <Text text="{status}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
