@@ -1,5 +1,5 @@
-```javascript
-let cities = [&#x27;Mumbai&#x27;, &#x27;Pune&#x27;, &#x27;Bengaluru&#x27;, &#x27;Hyderabad&#x27;, &#x27;Noida&#x27;];
-cities.sort();
-console.log(cities);
+```python
+cities = [&quot;Mumbai&quot;, &quot;Pune&quot;, &quot;Bengaluru&quot;, &quot;Hyderabad&quot;, &quot;Noida&quot;, &quot;Delhi&quot;]
+cities.sort()
+print(cities)
 ```
