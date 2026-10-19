@@ -1,0 +1,81 @@
+```abap
+REPORT z_renewable_energy_mgmt.
+
+DATA: lt_assets TYPE TABLE OF z_asset_details,
+      lt_spare_parts TYPE TABLE OF z_spare_parts_inventory,
+      lt_plants TYPE TABLE OF z_plants_warehouse,
+      lt_config TYPE TABLE OF z_generation_asset_config,
+      lt_maintenance TYPE TABLE OF z_maintenance_history,
+      lt_orders TYPE TABLE OF z_maintenance_orders,
+      lt_schedule TYPE TABLE OF z_preventive_schedule,
+      lt_commitments TYPE TABLE OF z_delivery_commitments,
+      lt_procurement TYPE TABLE OF z_procurement_status.
+
+PARAMETERS: p_search TYPE string,
+            p_asset_id TYPE string,
+            p_plant_id TYPE string.
+
+START-OF-SELECTION.
+
+  PERFORM search_assets USING p_search lt_assets.
+  PERFORM search_spare_parts USING p_search lt_spare_parts.
+  PERFORM check_material_availability USING lt_plants.
+  PERFORM retrieve_asset_config USING p_asset_id lt_config.
+  PERFORM review_maintenance_history USING p_asset_id lt_maintenance.
+  PERFORM validate_regulatory_compliance USING p_asset_id.
+  PERFORM create_orders USING lt_orders.
+  PERFORM check_supplier_availability USING lt_orders lt_procurement.
+  PERFORM validate_maintenance_schedules USING lt_schedule.
+  PERFORM generate_delivery_commitments USING lt_commitments.
+  PERFORM track_order_status USING lt_procurement.
+
+  PERFORM display_consolidated_view USING lt_assets lt_spare_parts lt_plants lt_orders
+                                         lt_procurement lt_config lt_maintenance lt_commitments.
+
+FORM search_assets USING iv_search TYPE string it_assets TYPE TABLE OF z_asset_details.
+  SELECT * FROM z_asset_details WHERE description LIKE iv_search INTO TABLE it_assets.
+ENDFORM.
+
+FORM search_spare_parts USING iv_search TYPE string it_spare_parts TYPE TABLE OF z_spare_parts_inventory.
+  SELECT * FROM z_spare_parts_inventory WHERE part_name LIKE iv_search INTO TABLE it_spare_parts.
+ENDFORM.
+
+FORM check_material_availability USING it_plants TYPE TABLE OF z_plants_warehouse.
+  SELECT * FROM z_plants_warehouse WHERE material_avail = 'X' INTO TABLE it_plants.
+ENDFORM.
+
+FORM retrieve_asset_config USING iv_asset_id TYPE string it_config TYPE TABLE OF z_generation_asset_config.
+  SELECT * FROM z_generation_asset_config WHERE asset_id = iv_asset_id INTO TABLE it_config.
+ENDFORM.
+
+FORM review_maintenance_history USING iv_asset_id TYPE string it_maintenance TYPE TABLE OF z_maintenance_history.
+  SELECT * FROM z_maintenance_history WHERE asset_id = iv_asset_id INTO TABLE it_maintenance.
+ENDFORM.
+
+FORM validate_regulatory_compliance USING iv_asset_id TYPE string.
+  SELECT * FROM z_regulatory_compliance WHERE asset_id = iv_asset_id.
+ENDFORM.
+
+FORM create_orders USING it_orders TYPE TABLE OF z_maintenance_orders.
+  INSERT INTO z_maintenance_orders FROM TABLE it_orders.
+ENDFORM.
+
+FORM check_supplier_availability USING it_orders TYPE TABLE OF z_maintenance_orders it_procurement TYPE TABLE OF z_procurement_status.
+  SELECT * FROM z_procurement_status WHERE order_id IN (SELECT order_id FROM it_orders) INTO TABLE it_procurement.
+ENDFORM.
+
+FORM validate_maintenance_schedules USING it_schedule TYPE TABLE OF z_preventive_schedule.
+  SELECT * FROM z_preventive_schedule INTO TABLE it_schedule.
+ENDFORM.
+
+FORM generate_delivery_commitments USING it_commitments TYPE TABLE OF z_delivery_commitments.
+  INSERT INTO z_delivery_commitments FROM TABLE it_commitments.
+ENDFORM.
+
+FORM track_order_status USING it_procurement TYPE TABLE OF z_procurement_status.
+  SELECT * FROM z_procurement_status WHERE status = 'In Progress' INTO TABLE it_procurement.
+ENDFORM.
+
+FORM display_consolidated_view USING FACTOR.
+ENDFORM.
+```
